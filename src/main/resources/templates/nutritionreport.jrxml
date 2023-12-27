@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f4737aab-297f-424c-ad0b-d6f63a8c288d">
+    <style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <subDataset name="demo" uuid="03a089cb-3855-4a68-8787-5b93f854375a">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+        <queryString>
+            <![CDATA[]]>
+        </queryString>
+        <field name="nutritionName" class="java.lang.String"/>
+        <field name="total" class="java.lang.Integer"/>
+        <field name="goal" class="java.lang.Integer"/>
+        <field name="metric" class="java.lang.String"/>
+        <sortField name="nutritionName"/>
+    </subDataset>
+    <subDataset name="macroNutrientDataSet" uuid="3695b489-6af8-4669-a468-bfc5cb756c21">
+        <queryString>
+            <![CDATA[]]>
+        </queryString>
+        <field name="macroNutrientName" class="java.lang.String"/>
+        <field name="macroNutrientValue" class="java.lang.Integer"/>
+    </subDataset>
+    <parameter name="firstName" class="java.lang.String"/>
+    <parameter name="lastName" class="java.lang.String"/>
+    <parameter name="dob" class="java.lang.String"/>
+    <parameter name="age" class="java.lang.Integer"/>
+    <parameter name="nutritionDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+    <parameter name="macroNutrientDataSet" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+    <parameter name="foodReport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="foodParameter" class="java.util.Map"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="82" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="0" y="0" width="560" height="64" backcolor="#5327C2" uuid="d073e900-6e2e-4464-b8bc-4cbecf03584a"/>
+                <staticText>
+                    <reportElement x="10" y="14" width="150" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="fd152b4f-a701-440c-a996-771b77c9b08f"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="18"/>
+                    </textElement>
+                    <text><![CDATA[Nutrition Report]]></text>
+                </staticText>
+                <textField>
+                    <reportElement x="370" y="4" width="189" height="19" forecolor="#FFFFFF" uuid="9630451f-a695-4f53-b1e4-8bebf7497e45"/>
+                    <textElement>
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$P{firstName} + "," +$P{lastName}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="443" y="25" width="100" height="19" forecolor="#FFFFFF" uuid="ac8abcb9-fc4d-49a2-8df9-1a2015f1583f"/>
+                    <textElement>
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["DOB" + $P{dob}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="448" y="44" width="100" height="19" forecolor="#FFFFFF" uuid="6ce3565c-02f8-4e4f-9fd9-672db3afd126"/>
+                    <textElement>
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Age" + $P{age}]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="25" splitType="Stretch">
+            <frame>
+                <reportElement x="360" y="3" width="200" height="16" uuid="8091a966-82ba-4e3b-a480-6d33a38a399e"/>
+                <staticText>
+                    <reportElement x="8" y="0" width="100" height="21" uuid="7c6d7516-94a9-4305-9a66-3cafbca5e44c"/>
+                    <text><![CDATA[Report Generated on]]></text>
+                </staticText>
+                <textField pattern="MMMMM dd, yyyy">
+                    <reportElement x="110" y="0" width="90" height="21" uuid="35252b69-7bac-401a-bed8-c803c0fe5620"/>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="61" splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="458" splitType="Stretch">
+            <componentElement>
+                <reportElement x="0" y="0" width="160" height="120" uuid="e01e0dba-cc04-46a5-87e5-bde6ac663e7f">
+                    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+                    <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="demo" uuid="baa9d2ef-983a-4ac0-8d3a-dd68b1447ec7">
+                        <dataSourceExpression><![CDATA[$P{nutritionDataSet}]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="40" uuid="444d5084-0dd9-4e41-a0d9-e3d62e0d69e2">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="3c108a4f-94b9-496f-85df-23f88ff0abbc"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[Nutrient]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="429a3adc-64ed-4a6a-9fbe-2ae18406126e"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <textFieldExpression><![CDATA[$F{nutritionName}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="40" uuid="a85605f5-6a50-4ee4-ade6-c26222ad1138">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="1ad6b825-b2be-406b-bf1c-3a7358c468cc"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[Total]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="6b959644-2d8b-41dc-b8ba-778da14dfcd3"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <textFieldExpression><![CDATA[$F{total}+ " "+ $F{metric}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="40" uuid="faf5915e-d6be-4412-bb49-d930c06578ad">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="ae3d643d-7494-4686-b4a3-22118be0c8ed"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[Goal]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="bfbdcfb1-3f08-4331-a61a-3d5e8b8359af"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <textFieldExpression><![CDATA[$F{goal}+" "+$F{metric}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="40" uuid="f424fa38-cae0-4486-bb7b-74ff9c517276">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="4eeacc3b-b1f6-464f-8b7f-de11415a137f"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[Left]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="40" height="30" uuid="dcdde592-deb9-4c3b-ab9d-e2a428ec0d55"/>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <textFieldExpression><![CDATA[($F{goal}-$F{total})+" "+$F{metric}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+            <pieChart>
+                <chart evaluationTime="Report">
+                    <reportElement x="320" y="10" width="200" height="200" uuid="2986fdfe-e325-4f7a-872d-838406b8e8eb"/>
+                    <chartTitle/>
+                    <chartSubtitle/>
+                    <chartLegend/>
+                </chart>
+                <pieDataset>
+                    <dataset>
+                        <datasetRun subDataset="macroNutrientDataSet" uuid="e548953b-216e-4fd5-91c6-11524a53d831">
+                            <dataSourceExpression><![CDATA[$P{macroNutrientDataSet}]]></dataSourceExpression>
+                        </datasetRun>
+                    </dataset>
+                    <keyExpression><![CDATA[$F{macroNutrientName}]]></keyExpression>
+                    <valueExpression><![CDATA[$F{macroNutrientValue}]]></valueExpression>
+                    <labelExpression><![CDATA[$F{macroNutrientValue} +""]]></labelExpression>
+                </pieDataset>
+                <piePlot>
+                    <plot/>
+                    <itemLabel/>
+                </piePlot>
+            </pieChart>
+            <subreport>
+                <reportElement x="30" y="250" width="200" height="200" uuid="2034c531-c260-42a3-b933-3e0aacffb34b"/>
+                <parametersMapExpression><![CDATA[$P{foodParameter}]]></parametersMapExpression>
+                <dataSourceExpression><![CDATA[new JREmptyDataSource()]]></dataSourceExpression>
+                <subreportExpression><![CDATA[$P{foodReport}]]></subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>
